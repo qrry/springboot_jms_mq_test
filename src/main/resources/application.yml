@@ -1,0 +1,48 @@
+# 项目相关配置
+cfit:
+  # 名称
+  name: jmsMQ
+  # 版本
+  version: 1.0.0.0
+  # 版权年份
+  copyrightYear: 2021
+
+
+# 开发环境配置
+server:
+  # 服务器的HTTP端口，默认为8080
+  port: 8080
+  servlet:
+    # 应用的访问路径
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 800
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+
+# 日志配置
+logging:
+  level:
+    cn.xxx: debug
+    org.springframework: warn
+
+# Spring配置
+spring:
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  profiles:
+    active: druid
+    include: mq,signature
+  mvc:
+    servlet:
+      load-on-startup: 1
+
+
+
+
+

@@ -1,0 +1,47 @@
+#IBM MQ Configuration
+ibm:
+  mq:
+    #Name of queue manager
+    queueManager: QM1
+    #Channel Name for SVRCONN
+    channel: DEV.ADMIN.SVRCONN
+    #Connection Name, which can be comma-separated list：IP(Port)
+    connName: 127.0.0.1(1414)
+    #Location of the MQ CCDT file (URL can reference http/ftp location)
+    #ccdtUrl:
+    #User Name. Must be set to an empty value to turn off authentication attempts
+    user: admin
+    #Password
+    password: passw0rd
+    #PooledObject
+    pool:
+      #Enabled Pooled connection factory usage
+      enabled: true
+      #Blocks a connection request when the pool is full. Default is false
+      blockIfFull: true
+      #Blocking period before throwing an exception if the pool is still full
+      blockIfFullTimeout: -1
+      #Connection idle timeout. Default to 30 seconds
+      idleTimeout: 5m
+      #Maximum number of pooled connections. Default is 1
+      maxConnections: 3
+      #Maximum number of pooled sessions. Default is 500
+      maxSessionsPerConnection: 2
+      #Time to sleep between runs of the idle connection eviction thread. Disable when negative. Default is -1
+      timeBetweenExpirationCheck: -1
+      #Whether to use only one anonymous "MessageProducer" instance. Set it to false to create one "MessageProducer" every time one is required
+      useAnonymousProducers: true
+
+#MQ Application properties
+msg:
+  #队列
+  queue:
+    recvQueue: DEV.QUEUE.1
+    sendQueue: DEV.QUEUE.3
+    deadQueue: DEV.DEAD.LETTER.QUEUE
+    errorQueue: XXX
+    copyQueue: TEST2
+  #主题
+  topic:
+    baseTopic: DEV.BASE.TOPIC
+

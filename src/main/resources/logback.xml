@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>logback</contextName>
+    <!-- 日志存放路径 -->
+	<property name="log.path" value="../logs/xxx" />
+    <!-- 日志输出格式 -->
+	<property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
+
+    <conversionRule conversionWord="n" converterClass="cn.xxx.common.log.LogDataConverter" > </conversionRule>
+
+    <!-- 控制台输出 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${log.pattern}</pattern>
+		</encoder>
+	</appender>
+
+    <!-- 系统模块日志级别控制  -->
+	<logger name="com.xxx" level="info" />
+	<!-- Spring日志级别控制  -->
+	<logger name="org.springframework" level="warn" />
+
+    <logger name="com.ibm.mq.spring.boot" level="TRACE" />
+
+    <logger name="org.messaginghub.pooled.jms" level="TRACE" />
+
+	<root level="info">
+		<appender-ref ref="console" />
+	</root>
+</configuration>
