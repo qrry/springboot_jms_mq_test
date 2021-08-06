@@ -25,6 +25,7 @@ public class JmsMessageListener {
     public void receiveMessage(Message message, Session session) throws JMSException {
 
         String msg = messageToString(message);
+        System.out.println(Thread.currentThread().getName());
         /*
         try {
             Thread.sleep(3000);
